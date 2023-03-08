@@ -342,11 +342,9 @@ document.querySelector(".print-button").onclick = function () {
     document.body.classList.add("print");
     window.print();
 };
-document.addEventListener('keydown', function (e) {
-    if (e.keyCode == 27) {
-        document.body.classList.remove("print");
-    }
-});
+window.onafterprint = function(){
+    document.body.classList.remove("print");
+}
 
 function readFile(input) {
     let file = input.files[0];
