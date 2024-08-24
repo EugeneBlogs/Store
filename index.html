@@ -107,36 +107,38 @@
 
     <div class="container qr mt-5">
         <div class="row text-center">
-            <div class="col-12">
-                <h1>Сканер QR-кодов</h1>
+            <div class="col-xl-6 col-md-12 col-sm-12 mt-3">
+                <h3>Сканер QR-кодов</h3>
                 <p>Работает только на сервере.</p>
                 <div style="width: 500px" id="reader"></div>
             </div>
-            <div class="col-12">
-                <h1>Дополнительные QR-коды</h1>
+            <div class="col-xl-6 col-md-12 col-sm-12 mt-3">
+                <h3>Дополнительные QR-коды</h3>
                 <p>Отсканируйте их и следуйте инструкциям.</p>
-            </div>
-            <div class="col-xl-4 col-md-6 col-sm-12">
-                <h6>QR-код для переноса всех товаров в корзину.</h6>
-                <a href="img/QR-код Все товары.png" download="" class="btn btn-danger">Скачать</a>
-            </div>
-            <div class="col-xl-4 col-md-6 col-sm-12">
-                <h6>QR-код для возврата товара.</h6>
-                <a href="img/QR-код Возврат.png" download="" class="btn btn-danger">Скачать</a>
-            </div>
-            <div class="col-xl-4 col-md-6 col-sm-12">
-                <h6>QR-код для скидки.</h6>
-                <a href="img/QR-код Скидка.png" download="" class="btn btn-danger">Скачать</a>
+                <div class="row">
+                    <div class="col-xl-4 col-md-6 col-sm-12">
+                        <h6>QR-код для переноса всех товаров в корзину.</h6>
+                        <a href="img/QR-код Все товары.png" download="" class="btn btn-danger">Скачать</a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-sm-12">
+                        <h6>QR-код для возврата товара.</h6>
+                        <a href="img/QR-код Возврат.png" download="" class="btn btn-danger">Скачать</a>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-sm-12">
+                        <h6>QR-код для скидки.</h6>
+                        <a href="img/QR-код Скидка.png" download="" class="btn btn-danger">Скачать</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLabel">Добавить товар</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <label for="good_article" class="form-label">Артикул товара</label>
@@ -148,7 +150,7 @@
                     <label for="good_price" class="form-label">Цена</label>
                     <input type="text" class="form-control mb-3" id="good_price">
                     <label for="good_count" class="form-label">Количество</label>
-                    <input type="text" class="form-control mb-3" id="good_count" min="1" value="1">
+                    <input type="text" class="form-control mb-3" id="good_count">
                     <label for="good_category" class="form-label">Категория товара</label>
                     <input type="text" class="form-control mb-3" id="good_category" maxlength="50">
                     <button type="submit" class="add_new btn btn-success">Сохранить</button>
@@ -156,16 +158,16 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="qr-code" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="qr-code" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLabel">Генератор QR-кодов</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <input class="form-control" id="user-text-qr" type="text" placeholder="Артикул товара"
-                        maxlength="15" onchange="Generate()" />
+                        onblur="Generate()" />
                     <br>
                     <div id="qr"></div>
                 </div>
@@ -211,7 +213,7 @@
                         Swal.fire({
                             title: 'Загрузка',
                             html: 'Перенос всех товаров в корзину займёт ещё <b></b> миллисекунд.',
-                            timer: 2000,
+                            timer: 3500,
                             timerProgressBar: true,
                             didOpen: () => {
                                 Swal.showLoading()
